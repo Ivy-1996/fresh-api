@@ -2,22 +2,41 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60ab30eb-c8dd-4e94-bb54-2ac2f1268be2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/apis/user/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/user/admin.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/user/apps.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/user/migrations/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/user/models.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/user/tests.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/apis/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/FreshApi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/FreshApi.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreshApi/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshApi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshApi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/mixin.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/mixin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="db" type="feb32156:DbDataSourceImpl" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="DjangoConsoleOptions" custom-start-script="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)">
     <option name="myCustomStartScript" value="import sys; print('Python %s on %s' % (sys.version, sys.platform))&#10;import django; print('Django %s' % django.get_version())&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;if 'setup' in dir(django): django.setup()&#10;import django_manage_shell; django_manage_shell.run(PROJECT_ROOT)" />
@@ -56,14 +75,14 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="G:\project\FreshApi" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="G:\project\FreshApi\apis" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="G:\project\FreshApi" />
     </key>
   </component>
   <component name="RunManager">
@@ -115,6 +134,7 @@
       <option name="presentableId" value="Default" />
       <updated>1576758692534</updated>
       <workItem from="1576758696457" duration="10700000" />
+      <workItem from="1576843140609" duration="10870000" />
     </task>
     <servers />
   </component>
@@ -122,34 +142,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576853928919">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576853928919" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1576759862650">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576759862650" />
-    <state width="1877" height="299" key="GridCell.Tab.0.bottom" timestamp="1576768079823">
+    <state width="1877" height="317" key="GridCell.Tab.0.bottom" timestamp="1576855155700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576768079823" />
-    <state width="1877" height="299" key="GridCell.Tab.0.center" timestamp="1576768079823">
+    <state width="1877" height="317" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
+    <state width="1877" height="317" key="GridCell.Tab.0.center" timestamp="1576855155700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576768079823" />
-    <state width="1877" height="299" key="GridCell.Tab.0.left" timestamp="1576768079823">
+    <state width="1877" height="317" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
+    <state width="1877" height="317" key="GridCell.Tab.0.left" timestamp="1576855155700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576768079823" />
-    <state width="1877" height="299" key="GridCell.Tab.0.right" timestamp="1576768079823">
+    <state width="1877" height="317" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
+    <state width="1877" height="317" key="GridCell.Tab.0.right" timestamp="1576855155700">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="299" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576768079823" />
-    <state x="461" y="161" key="SettingsEditor" timestamp="1576759926676">
+    <state width="1877" height="317" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
+    <state x="461" y="161" key="SettingsEditor" timestamp="1576843210036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="461" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576759926676" />
-    <state x="640" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576758728671">
+    <state x="461" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576843210036" />
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576843171420">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576758728671" />
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576843171420" />
     <state x="636" y="127" width="647" height="786" key="find.popup" timestamp="1576762662226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

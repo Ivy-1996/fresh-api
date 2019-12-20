@@ -1,18 +1,24 @@
 from django.conf import settings
 from django.contrib.auth import get_user_model
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login
+from django.contrib.auth.models import PermissionDenied
 
 from rest_framework import serializers
 from rest_framework.utils.serializer_helpers import ReturnDict
 
-from itsdangerous import JSONWebSignatureSerializer
+from itsdangerous import JSONWebSignatureSerializer, BadSignature
 
 import uuid
 
-# 注册模块
 from tasks.task import send_register_mail
+from utils.validators import phonenum_validator
+
+from . import models
+
+CREATE = 'create'
 
 
+# 注册模块
 class RegisterSerializer(serializers.Serializer):
     allow = serializers.CharField(max_length=5)
     r_password = serializers.CharField(max_length=20)
@@ -47,8 +53,8 @@ class RegisterSerializer(serializers.Serializer):
             return False
         return True
 
+    # 验证密码的一致性
     def validate(self, attrs):
-
         password = attrs.get('password')
         r_password = attrs.get('r_password')
         if password != r_password:
@@ -77,14 +83,54 @@ class LoginSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=8, min_length=5)
     password = serializers.CharField(max_length=16, min_length=6)
 
-    def create(self, validated_data):
-        user = authenticate(**validated_data)
+    def save(self, **kwargs):
+        user = authenticate(**self.validated_data)
         if user:
+            if user.is_active is False:
+                raise serializers.ValidationError({'username': ['用户未激活!']})
             request = self.context.get('request')
             login(request, user)
-            return validated_data
         raise serializers.ValidationError({'password': ['用户名或密码错误!']})
 
     @property
     def data(self):
         return ReturnDict({'msg': '登录成功!'}, serializer=self)
+
+
+class UserActiveSerializer(serializers.Serializer):
+    token = serializers.CharField(max_length=255)
+
+    def validate(self, attrs):
+        token = attrs.get('token')
+        serializer = JSONWebSignatureSerializer(settings.SECRET_KEY)
+        try:
+            data = serializer.loads(token)
+        except BadSignature:
+            raise PermissionDenied
+        return data
+
+
+class AddressModelSerializer(serializers.ModelSerializer):
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
+
+    class Meta:
+        model = models.Address
+        exclude = ['is_delete']
+        extra_kwargs = {
+            'insert_time': {'read_only': True},
+            'update_time': {'read_only': True},
+            'phone': {'validators': [phonenum_validator]}
+        }
+
+    # 将以前的所有的默认地址改为False(其实也只有一个)
+    # 再转给父类的create执行操作
+    def create(self, validated_data):
+        is_default = validated_data.get('is_default')
+        if is_default is True:
+            self.Meta.model.objects.filter(is_default=True, is_delete=False).update(is_default=False)
+        return super(AddressModelSerializer, self).create(validated_data)
+
+    # 同上
+    def update(self, instance, validated_data):
+        self.Meta.model.objects.filter(is_default=True, is_delete=False).update(is_default=False)
+        return super().update(instance, validated_data)

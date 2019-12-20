@@ -7,6 +7,9 @@ class BaseModel(models.Model):
     update_time = models.DateTimeField(auto_now=True)
     is_delete = models.BooleanField(default=False)
 
+    class Meta:
+        abstract = True
+
 
 class PhonenumField(models.CharField):
     def __init__(self, *args, **kwargs):

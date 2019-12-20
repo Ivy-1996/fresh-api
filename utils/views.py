@@ -37,6 +37,10 @@ class GenericViewSet(DefaultResponse, BaseView, mixin.ViewSetMixIn, viewsets.Gen
     pass
 
 
+class ReadOnlyModelViewSet(DefaultResponse, BaseView, mixin.ViewSetMixIn, viewsets.ReadOnlyModelViewSet):
+    pass
+
+
 class ModelViewSet(DefaultResponse, BaseView, mixin.ViewSetMixIn, viewsets.ModelViewSet):
     pass
 

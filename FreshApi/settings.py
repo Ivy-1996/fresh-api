@@ -39,7 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
+    'debug_toolbar.apps.DebugToolbarConfig',
+    'tinymce',
     'user',
+    'goods',
 ]
 
 MIDDLEWARE = [
@@ -50,8 +53,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
+INTERNAL_IPS = ("127.0.0.1",)
 ROOT_URLCONF = 'FreshApi.urls'
 
 TEMPLATES = [
@@ -78,8 +83,12 @@ WSGI_APPLICATION = 'FreshApi.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'fresh',
+        'USER': 'root',
+        'PASSWORD': 'qwe123',
+        'HOST': '127.0.0.1',
+        'PORT': 3306,
     }
 }
 
@@ -126,9 +135,17 @@ EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = '919624032@qq.com'
-EMAIL_HOST_PASSWORD = 'qngkmtqtcakvbgaf'
+EMAIL_HOST_PASSWORD = 'ukwmsnzpofmqbfcb'
 EMAIL_FROM = '<919624032@qq.com>'
 
 REST_FRAMEWORK = {
-    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema'
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.SessionAuthentication'],
+    'DEFAULT_PAGINATION_CLASS': 'utils.pagination.Pagination',
+    'PAGE_SIZE': 50,
+    'DEFAULT_FILTER_BACKENDS': [
+        'django_filters.rest_framework.DjangoFilterBackend',
+        'rest_framework.filters.SearchFilter',
+        'rest_framework.filters.OrderingFilter',
+    ]
 }

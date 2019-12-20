@@ -5,6 +5,7 @@ ALL_FIELDS = '__all__'
 
 class ApiViewMinxin:
     def dispatch(self, request, *args, **kwargs):
+        print(f'current view is {self.__class__.__name__}')
         # 执行父类的dispath,获取框架的处理的响应结构
         response = super(ApiViewMinxin, self).dispatch(request, *args, **kwargs)
         # 开始分发响应对象
