@@ -23,13 +23,14 @@ class GoodsBannerModelSerializer(serializers.ModelSerializer):
 class GoodsSkuModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.GoodsSKU
-        fields = '__all__'
-        depth = 1
+        # fields = '__all__'
+        exclude = ['insert_time', 'update_time', 'is_delete']
+        # depth = 1
 
 
 class GoodsImageModelSerializer(serializers.ModelSerializer):
     class Meta:
-        model = models.GoodsType
+        model = models.GoodsImage
         fields = '__all__'
         depth = 1
 

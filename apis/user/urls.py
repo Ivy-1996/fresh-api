@@ -8,4 +8,5 @@ route.register('login', views.LoginApi, basename='login')
 route.register('active', views.UserActiveApi, basename='active')
 route.register('logout', views.LougoutApi, basename='logout')
 route.register('address', views.AddressApi, basename='address')
+route.register('history', views.HistoryApi, basename='history')
 urlpatterns = route.urls

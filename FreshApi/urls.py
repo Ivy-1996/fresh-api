@@ -23,6 +23,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include('user.urls')),
     path('goods/', include('goods.urls')),
+    path('cart/', include('cart.urls')),
     path('api/', include('rest_framework.urls')),
     path('docs/', include_docs_urls(title='Fresh Api')),
 ]

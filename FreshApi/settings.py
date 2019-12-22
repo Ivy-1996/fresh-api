@@ -23,9 +23,6 @@ sys.path.insert(0, os.path.join(BASE_DIR, 'apis'))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 't^18-joc&$rur5u%=pvoq@_+%9+-mie+98wg=j!k84mly9f^=4'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -39,7 +36,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'django_filters',
-    'debug_toolbar.apps.DebugToolbarConfig',
     'tinymce',
     'user',
     'goods',
@@ -53,17 +49,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
-INTERNAL_IPS = ("127.0.0.1",)
 ROOT_URLCONF = 'FreshApi.urls'
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
-        ,
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -77,20 +70,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'FreshApi.wsgi.application'
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'fresh',
-        'USER': 'root',
-        'PASSWORD': 'qwe123',
-        'HOST': '127.0.0.1',
-        'PORT': 3306,
-    }
-}
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -131,6 +110,9 @@ STATIC_URL = '/static/'
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "session"
+
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 465
@@ -141,6 +123,7 @@ EMAIL_FROM = '<919624032@qq.com>'
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
     'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework.authentication.SessionAuthentication'],
+    # 'DEFAULT_PERMISSION_CLASSES': ['rest_framework.permissions.IsAuthenticated'],
     'DEFAULT_PAGINATION_CLASS': 'utils.pagination.Pagination',
     'PAGE_SIZE': 50,
     'DEFAULT_FILTER_BACKENDS': [

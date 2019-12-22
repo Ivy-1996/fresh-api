@@ -13,6 +13,7 @@ import uuid
 from tasks.task import send_register_mail
 from utils.validators import phonenum_validator
 
+from goods.models import GoodsSKU
 from . import models
 
 CREATE = 'create'
@@ -90,7 +91,8 @@ class LoginSerializer(serializers.Serializer):
                 raise serializers.ValidationError({'username': ['用户未激活!']})
             request = self.context.get('request')
             login(request, user)
-        raise serializers.ValidationError({'password': ['用户名或密码错误!']})
+        else:
+            raise serializers.ValidationError({'password': ['用户名或密码错误!']})
 
     @property
     def data(self):
@@ -100,6 +102,7 @@ class LoginSerializer(serializers.Serializer):
 class UserActiveSerializer(serializers.Serializer):
     token = serializers.CharField(max_length=255)
 
+    # 解密token
     def validate(self, attrs):
         token = attrs.get('token')
         serializer = JSONWebSignatureSerializer(settings.SECRET_KEY)
@@ -134,3 +137,21 @@ class AddressModelSerializer(serializers.ModelSerializer):
     def update(self, instance, validated_data):
         self.Meta.model.objects.filter(is_default=True, is_delete=False).update(is_default=False)
         return super().update(instance, validated_data)
+
+
+class HistorySerializer(serializers.Serializer):
+    histories = serializers.ListField(child=serializers.IntegerField())
+
+    # 不要使用`PrimaryKeyRelatedField`, 它的内部是通过`objects.get`的方式获取的,序列化多个需要合并queryset
+    # histories = serializers.ListField(child=serializers.PrimaryKeyRelatedField(queryset=GoodsSKU.objects.all()))
+
+    # 获取合并`queryset`对象
+    def validate(self, attrs):
+        histories = attrs.get('histories')
+        # 设置一个空的`queryset`
+        instance = GoodsSKU.objects.none()
+        # 合并浏览记录列表的`queryset`
+        for history in histories:
+            good = GoodsSKU.objects.filter(pk=history)
+            instance = instance | good
+        return instance

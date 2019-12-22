@@ -3,16 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="60ab30eb-c8dd-4e94-bb54-2ac2f1268be2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FreshApi/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshApi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FreshApi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/user/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/goods/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/goods/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/goods/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/serializers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/db.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/db.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils/mixin.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/mixin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,11 +77,11 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="G:\project\FreshApi\apis" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="G:\project\FreshApi" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\project\FreshApi\apis" />
     </key>
   </component>
   <component name="RunManager">
@@ -92,9 +91,9 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="DJANGO_SETTINGS_MODULE" value="FreshApi.settings" />
+        <env name="DJANGO_SETTINGS_MODULE" value="FreshApi.develop" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="G:\VENV\FreshApi\Scripts\python.exe" />
       <option name="WORKING_DIRECTORY" value="" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
@@ -134,7 +133,8 @@
       <option name="presentableId" value="Default" />
       <updated>1576758692534</updated>
       <workItem from="1576758696457" duration="10700000" />
-      <workItem from="1576843140609" duration="10870000" />
+      <workItem from="1576843140609" duration="11574000" />
+      <workItem from="1577008586897" duration="16601000" />
     </task>
     <servers />
   </component>
@@ -142,30 +142,38 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577008999321">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="174" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577008999321" />
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1576853928919">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576853928919" />
+    <state x="694" y="280" key="EnvironmentVariablesDialog" timestamp="1577008997267">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="694" y="280" key="EnvironmentVariablesDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577008997267" />
     <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1576759862650">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576759862650" />
-    <state width="1877" height="317" key="GridCell.Tab.0.bottom" timestamp="1576855155700">
+    <state width="1877" height="276" key="GridCell.Tab.0.bottom" timestamp="1577026168925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
-    <state width="1877" height="317" key="GridCell.Tab.0.center" timestamp="1576855155700">
+    <state width="1877" height="276" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
+    <state width="1877" height="276" key="GridCell.Tab.0.center" timestamp="1577026168925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
-    <state width="1877" height="317" key="GridCell.Tab.0.left" timestamp="1576855155700">
+    <state width="1877" height="276" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
+    <state width="1877" height="276" key="GridCell.Tab.0.left" timestamp="1577026168925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
-    <state width="1877" height="317" key="GridCell.Tab.0.right" timestamp="1576855155700">
+    <state width="1877" height="276" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
+    <state width="1877" height="276" key="GridCell.Tab.0.right" timestamp="1577026168925">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="317" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576855155700" />
+    <state width="1877" height="276" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
     <state x="461" y="161" key="SettingsEditor" timestamp="1576843210036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -178,9 +186,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="636" y="127" width="647" height="786" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576762662226" />
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1576763962204">
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup" timestamp="1577018170838">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1576763962204" />
+    <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577018170838" />
   </component>
 </project>
