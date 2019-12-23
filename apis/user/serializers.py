@@ -20,12 +20,16 @@ CREATE = 'create'
 
 
 # 注册模块
-class RegisterSerializer(serializers.Serializer):
+class RegisterSerializer(serializers.ModelSerializer):
     allow = serializers.CharField(max_length=5)
     r_password = serializers.CharField(max_length=20)
     username = serializers.CharField(max_length=8, min_length=5)
     password = serializers.CharField(max_length=16, min_length=6)
     email = serializers.EmailField(max_length=20)
+
+    class Meta:
+        model = get_user_model()
+        fields = ['allow', 'r_password', 'username', 'password', 'email']
 
     # 验证是否同意协议
     def validate_allow(self, attr):

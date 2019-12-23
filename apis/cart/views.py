@@ -1,13 +1,21 @@
+from rest_framework.generics import get_object_or_404
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import mixins
+from rest_framework import viewsets
 
 from django_redis import get_redis_connection
 from rest_framework.response import Response
 
-from utils.views import GenericViewSet
+from utils.views import GenericViewSet, ModelViewSet
+
+from goods.models import GoodsSKU
+from goods.serializers import GoodsSkuModelSerializer
 
 from . import serializers
+from . import permission
 
+
+# 这几个模块分来来做要比放在一个ViewSet中要方便
 
 class AddCartApi(mixins.CreateModelMixin, GenericViewSet):
     """添加购物车"""
@@ -17,6 +25,7 @@ class AddCartApi(mixins.CreateModelMixin, GenericViewSet):
 
 class CartInfoApi(GenericViewSet):
     """购物车详情"""
+    # 这里不在类属性中定义`serializers_class`,免得被api文档捕捉到,造成误读
     permission_classes = [IsAuthenticated]
 
     def list(self, request, *args, **kwargs):
@@ -32,3 +41,25 @@ class CartInfoApi(GenericViewSet):
         serializer = serializers.CartInfoSerializer(data=data)
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data)
+
+
+class UpdateCartApi(mixins.UpdateModelMixin, GenericViewSet):
+    """更新购物车"""
+    permission_classes = [IsAuthenticated, permission.HasCartSkuPermission]
+    serializer_class = serializers.UpdateCartSerializer
+    queryset = GoodsSKU.objects.filter(is_delete=False)
+
+
+class DeleteCartApi(GenericViewSet):
+    """删除购物车"""
+    permission_classes = [IsAuthenticated, permission.HasCartSkuPermission]
+    queryset = GoodsSKU.objects.filter(is_delete=False)
+
+    def destroy(self, request, *args, **kwargs):
+        # 主要是为了校验权限
+        self.get_object()
+        coon = get_redis_connection('default')
+        cart_key = 'cart_%d' % request.user.pk
+        pk = kwargs.get('pk')
+        coon.hdel(cart_key, pk)
+        return Response({'msg': '删除成功!'})

@@ -73,10 +73,12 @@ class HistoryApi(mixins.ListModelMixin, GenericViewSet):
         return super().list(request, *args, **kwargs)
 
     # 将用户的历史浏览记录转换为`queryset`对象返回给`ListModelMixin`
+    # 直接重写`filter_queryset`,而不是`get_queryset`,这个视图就5条信息,不用查询
     def filter_queryset(self, queryset):
         # 获取用户的历史浏览记录
         coon = get_redis_connection('default')
         history_key = 'history_%d' % self.request.user.pk
+        # 获取前面5条
         histories = coon.lrange(history_key, 0, 4)
         # byte转int
         histories = [int(pk) for pk in histories]

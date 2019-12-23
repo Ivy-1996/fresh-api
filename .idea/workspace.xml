@@ -3,15 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="60ab30eb-c8dd-4e94-bb54-2ac2f1268be2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FreshApi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FreshApi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/goods/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/goods/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/goods/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/goods/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/cart/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/cart/serializers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/cart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/cart/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/cart/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/user/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/mixin.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/mixin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/response.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +132,8 @@
       <updated>1576758692534</updated>
       <workItem from="1576758696457" duration="10700000" />
       <workItem from="1576843140609" duration="11574000" />
-      <workItem from="1577008586897" duration="16601000" />
+      <workItem from="1577008586897" duration="17101000" />
+      <workItem from="1577098382345" duration="9678000" />
     </task>
     <servers />
   </component>
@@ -158,30 +157,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576759862650" />
-    <state width="1877" height="276" key="GridCell.Tab.0.bottom" timestamp="1577026168925">
+    <state width="1877" height="293" key="GridCell.Tab.0.bottom" timestamp="1577106796827">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
-    <state width="1877" height="276" key="GridCell.Tab.0.center" timestamp="1577026168925">
+    <state width="1877" height="293" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796827" />
+    <state width="1877" height="293" key="GridCell.Tab.0.center" timestamp="1577106796826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
-    <state width="1877" height="276" key="GridCell.Tab.0.left" timestamp="1577026168925">
+    <state width="1877" height="293" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796826" />
+    <state width="1877" height="293" key="GridCell.Tab.0.left" timestamp="1577106796825">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
-    <state width="1877" height="276" key="GridCell.Tab.0.right" timestamp="1577026168925">
+    <state width="1877" height="293" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796825" />
+    <state width="1877" height="293" key="GridCell.Tab.0.right" timestamp="1577106796826">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577026168925" />
+    <state width="1877" height="293" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796826" />
     <state x="461" y="161" key="SettingsEditor" timestamp="1576843210036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576843210036" />
-    <state x="640" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576843171420">
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1577098388480">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576843171420" />
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577098388480" />
     <state x="636" y="127" width="647" height="786" key="find.popup" timestamp="1576762662226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
