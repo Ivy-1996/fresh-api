@@ -35,3 +35,11 @@ CACHES = {
         }
     },
 }
+
+IMAGE_DOMAIN = 'http://img.summerleaves.cn/'
+
+ALIPAY_APP_ID = '2016101300674998'
+
+APP_PRIVATE_KEY_PATH = os.path.join(BASE_DIR, 'conf/app_private_key.pem')
+
+ALIPAY_PUBLIC_KEY_PATH = os.path.join(BASE_DIR, 'conf/alipay_public_key.pem')

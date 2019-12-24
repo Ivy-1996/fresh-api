@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="60ab30eb-c8dd-4e94-bb54-2ac2f1268be2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/cart/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/cart/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/cart/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/cart/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreshApi/develop.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/develop.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreshApi/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FreshApi/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/FreshApi/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apis/cart/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/cart/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/user/serializers.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/serializers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apis/user/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/response.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/response.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/goods/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/goods/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/goods/tests.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/goods/tests.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apis/user/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/apis/user/admin.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +43,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -58,6 +60,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -79,10 +82,33 @@
       <recent name="G:\project\FreshApi" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\project\FreshApi\conf" />
       <recent name="G:\project\FreshApi\apis" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.tests">
+    <configuration name="tests" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="FreshApi" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/apis/goods" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/apis/goods/tests.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="FreshApi" type="Python.DjangoServer" factoryName="Django server">
       <module name="FreshApi" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -107,6 +133,11 @@
       <option name="customRunCommand" value="" />
       <method v="2" />
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.tests" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="ServiceViewManager">
     <option name="viewStates">
@@ -133,7 +164,8 @@
       <workItem from="1576758696457" duration="10700000" />
       <workItem from="1576843140609" duration="11574000" />
       <workItem from="1577008586897" duration="17101000" />
-      <workItem from="1577098382345" duration="9678000" />
+      <workItem from="1577098382345" duration="14833000" />
+      <workItem from="1577185391082" duration="12804000" />
     </task>
     <servers />
   </component>
@@ -157,30 +189,30 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576759862650" />
-    <state width="1877" height="293" key="GridCell.Tab.0.bottom" timestamp="1577106796827">
+    <state width="1877" height="330" key="GridCell.Tab.0.bottom" timestamp="1577202892072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796827" />
-    <state width="1877" height="293" key="GridCell.Tab.0.center" timestamp="1577106796826">
+    <state width="1877" height="330" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1577202892072" />
+    <state width="1877" height="330" key="GridCell.Tab.0.center" timestamp="1577202892072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796826" />
-    <state width="1877" height="293" key="GridCell.Tab.0.left" timestamp="1577106796825">
+    <state width="1877" height="330" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1577202892072" />
+    <state width="1877" height="330" key="GridCell.Tab.0.left" timestamp="1577202892072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796825" />
-    <state width="1877" height="293" key="GridCell.Tab.0.right" timestamp="1577106796826">
+    <state width="1877" height="330" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1577202892072" />
+    <state width="1877" height="330" key="GridCell.Tab.0.right" timestamp="1577202892072">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="293" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577106796826" />
+    <state width="1877" height="330" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1577202892072" />
     <state x="461" y="161" key="SettingsEditor" timestamp="1576843210036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="161" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576843210036" />
-    <state x="640" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1577098388480">
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1577185392360">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="640" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577098388480" />
+    <state x="640" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1577185392360" />
     <state x="636" y="127" width="647" height="786" key="find.popup" timestamp="1576762662226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -189,5 +221,8 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="616" y="173" width="672" height="676" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1577018170838" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/FreshApi$tests.coverage" NAME="tests Coverage Results" MODIFIED="1577192263536" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/apis/goods" />
   </component>
 </project>
