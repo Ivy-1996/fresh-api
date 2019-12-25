@@ -76,7 +76,7 @@ class RegisterSerializer(serializers.ModelSerializer):
         token = serializer.dumps(data).decode()
         email = self.validated_data.get('email')
         username = self.validated_data.get('username')
-        send_register_mail(email, username, token)
+        send_register_mail.delay(email, username, token)
 
     @property
     def data(self):

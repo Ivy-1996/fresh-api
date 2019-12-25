@@ -257,3 +257,9 @@ class CommentReadModelSerializer(serializers.ModelSerializer):
     class Meta:
         model = GoodsSKU
         fields = ['results']
+
+
+class UpdateCommentModelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.OrderGoods
+        fields = ['comment']

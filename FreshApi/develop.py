@@ -19,6 +19,8 @@ DATABASES = {
     }
 }
 
+BROKER = 'redis://127.0.0.1:6379/3'
+
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",

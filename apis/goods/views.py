@@ -1,5 +1,8 @@
 from django_redis import get_redis_connection
 
+from drf_haystack.viewsets import HaystackViewSet
+from drf_haystack.filters import HaystackGEOSpatialFilter
+
 from utils.views import ReadOnlyModelViewSet
 from . import models
 from . import serializers
@@ -23,14 +26,21 @@ class GoodsBannerApi(ReadOnlyModelViewSet):
     serializer_class = serializers.GoodsBannerModelSerializer
 
 
+# 原生drf查询
 class GoodsSkuApi(ReadOnlyModelViewSet):
     """GoodsSku"""
     queryset = models.GoodsSKU.objects.all()
     serializer_class = serializers.GoodsSkuModelSerializer
     filterset_fields = ['type']
+    search_fields = ['name', 'desc', 'goods__detail']
 
     def get_object(self):
         obj = super(GoodsSkuApi, self).get_object()
+        self.add_history()
+        return obj
+
+    # 添加浏览记录
+    def add_history(self):
         user = self.request.user
         # 添加用户的浏览记录
         if user.is_authenticated:
@@ -45,7 +55,12 @@ class GoodsSkuApi(ReadOnlyModelViewSet):
             coon.lpush(history_key, pk)
             # 取用户保存的最新5条信息
             coon.ltrim(history_key, 0, 4)
-        return obj
+
+
+class GoodsSkuHaystackViewApi(HaystackViewSet):
+    """搜索引擎查询"""
+    index_models = [models.GoodsSKU]
+    serializer_class = serializers.GoodsSkuHaystackSerializer
 
 
 class GoodsImageApi(ReadOnlyModelViewSet):
@@ -61,5 +76,6 @@ class IndexTypeGoodsBannerApi(ReadOnlyModelViewSet):
 
 
 class IndexPromotionBannerApi(ReadOnlyModelViewSet):
+    """IndexPromotionBannerApi"""
     queryset = models.IndexPromotionBanner.objects.all()
     serializer_class = serializers.IndexPromotionBannerModelSerializer

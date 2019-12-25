@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django_filters',
     'import_export',
     'tinymce',
+    'haystack',
+    'drf_haystack',
     'user',
     'goods',
     'order',
@@ -133,5 +135,26 @@ REST_FRAMEWORK = {
         'django_filters.rest_framework.DjangoFilterBackend',
         'rest_framework.filters.SearchFilter',
         'rest_framework.filters.OrderingFilter',
-    ]
+    ],
+    'SEARCH_PARAM': 'q'
+    # 'DEFAULT_EXCEPTION_HANDLE_CLASS': 'utils.views.DefaultExceptionHandle',
+    # 处理自定义返回信息
+    # 'EXCEPTION_HANDLER': 'utils.views.exception_handler',
 }
+
+FDFS_CLIENT_CONF = os.path.join(BASE_DIR, 'conf/client.conf')
+
+# 设置django文件的存库类
+DEFAULT_FILE_STORAGE = 'utils.storages.FdfsStorage'
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        # 使用whoosh引擎
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        # 'ENGINE': 'haystack.backends.whoosh_cn_backend.WhooshEngine',
+        # 索引文件路径
+        'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+    },
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'

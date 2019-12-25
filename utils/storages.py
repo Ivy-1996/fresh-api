@@ -1,14 +1,17 @@
-from django.conf import settings
 from django.core.files.storage import Storage
+from django.conf import settings
 
 from .exceptions import OssOssStroageSaveFailError
 
 import oss2
+from fdfs_client.client import Fdfs_client
 
 DEFAULT_ACCESS_KEY = getattr(settings, 'OSS_ACCESS_KEY', None)
 DEFAULT_ACCESS_SECRET = getattr(settings, 'OSS_ACCESS_SECRET', None)
 DEFAULT_ACCESS_BUCKET_NAME = getattr(settings, 'DEFAULT_ACCESS_BUCKET_NAME', None)
 DEFAULT_ENDPOINT = getattr(settings, 'DEFAULT_ENDPOINT', None)
+IMAGE_DOMAIN = getattr(settings, 'IMAGE_DOMAIN', None)
+FDFS_CLIENT_CONF = getattr(settings, 'FDFS_CLIENT_CONF', None)
 
 
 class OssStroage(oss2.Auth):
@@ -39,3 +42,30 @@ class DjangoOssStroage(OssStroage, Storage):
 
     def url(self, name):
         return name
+
+
+class FdfsStorage(Storage):
+    default_client = FDFS_CLIENT_CONF
+    default_image_domain = IMAGE_DOMAIN
+
+    def __init__(self, client=None, img_domain=None):
+        self.client = client or self.default_client
+        self.img_domain = img_domain or self.default_image_domain
+        assert self.client is not None, 'clien path can not be None' \
+                                        'you can set global `FDFS_CLIENT_CONF` in your setting'
+        assert self.img_domain is not None, 'img_domain can not be None' \
+                                            'you can set global `IMAGE_DOMAIN` in your setting'
+
+    def _save(self, name, content):
+        client = Fdfs_client(self.client)
+        response = client.upload_by_buffer(content.read())
+        if response.get('Status') != 'Upload successed.':
+            raise Exception('upload to fdfs failed')
+        filename = response.get('Remote file_id')
+        return filename
+
+    def exists(self, name):
+        return False
+
+    def url(self, name):
+        return self.img_domain + name

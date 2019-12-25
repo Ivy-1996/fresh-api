@@ -43,10 +43,11 @@ class BaseExceptionHandle:
     def dispatch(self):
         # 默认行为为根据响应的状态码来分发请求
         # 如果要定制,请重写该方法
-        handle = getattr(self, f'dispatch_{self.response.status_code}', self.default_response)
-        return handle()
+        # print(self.response)
+        process = getattr(self, f'dispatch_{self.response.status_code}', self.default_response)
+        return process(self.ext, self.context, self.response)
 
-    def default_response(self):
+    def default_response(self, *args, **kwargs):
         return self.response
 
     def __call__(self, *args, **kwargs):
@@ -54,15 +55,18 @@ class BaseExceptionHandle:
 
 
 class DefaultExceptionHandle(BaseExceptionHandle):
-    def dispatch_404(self):
-        # 没有结果不想返回404
-        response = {'success': True, 'results': []}
-        return Response(response)
+    def dispatch_404(self, ext, context, response):
+        # 只有查询的时候没有结果不想返回404
+        view = self.context.get('view')
+        if view.action == 'get':
+            response = {'success': True, 'results': []}
+            return Response(response)
+        return response
 
 
-exception_handle = DRF_SETTINGS.get('DEFAULT_EXCEPTION_HANDLE_CLASS', 'rest_framework.views.exception_handler')
+handle = DRF_SETTINGS.get('DEFAULT_EXCEPTION_HANDLE_CLASS', 'rest_framework.views.exception_handler')
 
-EXCEPTION_HANDLE = import_string(exception_handle)
+EXCEPTION_HANDLE = import_string(handle)
 
 
 # 错误请求的处理函数

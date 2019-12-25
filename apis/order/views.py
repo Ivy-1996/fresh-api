@@ -37,25 +37,14 @@ class PayOrderCheckApi(mixins.CreateModelMixin, GenericViewSet):
     permission_classes = [IsAuthenticated]
 
 
-class CommentApi(mixins.UpdateModelMixin, mixins.RetrieveModelMixin, GenericViewSet):
-    """评论接口,因为开始创建订单的时候评论默认为空,现在让用户修改,以后再修改还是这个put请求
-    """
+class CommentApi(mixins.UpdateModelMixin, GenericViewSet):
+    """更新评论接口,因为开始创建订单的时候评论默认为空,现在让用户修改,以后再修改还是这个put请求"""
+
+    serializer_class = serializers.UpdateCommentModelSerializer
+
+    queryset = models.OrderGoods.objects.all()
+
     permission_classes = [IsAuthenticated]
 
-    route = {
-        'retrieve': serializers.CommentReadModelSerializer,
-        'update': serializers.CommentModelSerializer,
-        'partial_update': serializers.CommentModelSerializer,
-    }
-
-    queryset_route = {
-        'retrieve': GoodsSKU.objects.all(),
-        'update': models.OrderGoods.objects.all(),
-        'partial_update': models.OrderGoods.objects.all(),
-    }
-
     def get_queryset(self):
-        return self.queryset_route.get(self.action)
-
-    def get_serializer_class(self):
-        return self.route.get(self.action)
+        return self.queryset.filter(order__user=self.request.user)

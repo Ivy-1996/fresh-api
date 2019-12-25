@@ -12,12 +12,8 @@ class GoodsTypeAdmin(ImportExportModelAdmin):
     list_display = ['name', 'logo', 'image_data']
 
     def image_data(self, attr):
-        image_domain = getattr(settings, 'IMAGE_DOMAIN', None)
-        if image_domain is None:
-            resp = attr.image.url
-        else:
-            content = f'<img src="{image_domain + attr.image.url}" width=120>'
-            resp = mark_safe(content)
+        content = f'<img src="{attr.image.url}" width=120>'
+        resp = mark_safe(content)
         return resp
 
 
@@ -30,12 +26,14 @@ class GoodsSKUAdmin(ImportExportModelAdmin):
     list_filter = ['goods'] + search_fields
 
     def image_data(self, attr):
-        image_domain = getattr(settings, 'IMAGE_DOMAIN', None)
-        if image_domain is None:
-            resp = attr.image.url
-        else:
-            content = f'<img src="{image_domain + attr.image.url}" width=40>'
-            resp = mark_safe(content)
+        content = f'<img src="{attr.image.url}" width=40>'
+        resp = mark_safe(content)
+        print(resp)
         return resp
 
     image_data.short_description = '商品图片'
+
+
+@admin.register(models.Goods)
+class GoodsAdmin(ImportExportModelAdmin):
+    pass

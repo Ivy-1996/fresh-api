@@ -1,5 +1,11 @@
 from rest_framework import serializers
+
+from drf_haystack.serializers import HaystackSerializer
+
+from order.serializers import CommentModelSerializer
+
 from . import models
+from . import search_indexes
 
 
 class GoodsModelSerializer(serializers.ModelSerializer):
@@ -21,11 +27,29 @@ class GoodsBannerModelSerializer(serializers.ModelSerializer):
 
 
 class GoodsSkuModelSerializer(serializers.ModelSerializer):
+    comment = serializers.ManyRelatedField(source='ordergoods_set', child_relation=CommentModelSerializer(),
+                                           read_only=True, required=False)
+
     class Meta:
         model = models.GoodsSKU
-        # fields = '__all__'
-        exclude = ['insert_time', 'update_time', 'is_delete']
-        # depth = 1
+        exclude = ['insert_time', 'update_time', 'is_delete', ]
+
+
+class GoodsSkuHaystackSerializer(HaystackSerializer):
+    object = GoodsSkuModelSerializer(read_only=True)
+
+    class Meta:
+        index_classes = [search_indexes.GoodsSKUIndex]
+        fields = ['object', 'name', 'desc', 'detail']
+        ignore_fields = ["autocomplete"]
+
+        # The `field_aliases` attribute can be used in order to alias a
+        # query parameter to a field attribute. In this case a query like
+        # /search/?q=oslo would alias the `q` parameter to the `autocomplete`
+        # field on the index.
+        field_aliases = {
+            "q": "autocomplete"
+        }
 
 
 class GoodsImageModelSerializer(serializers.ModelSerializer):
