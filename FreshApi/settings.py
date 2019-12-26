@@ -112,6 +112,8 @@ USE_TZ = False
 
 STATIC_URL = '/static/'
 
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 AUTHENTICATION_BACKENDS = ['django.contrib.auth.backends.AllowAllUsersModelBackend']
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 

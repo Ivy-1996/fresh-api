@@ -1,3 +1,10 @@
+# import django
+# import os
+#
+# os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'FreshApi.develop')
+#
+# django.setup()
+
 from django.core.mail import send_mail
 from django.conf import settings
 
@@ -7,7 +14,9 @@ DOMAIN = getattr(settings, 'DOMAIN', 'http://127.0.0.1:8000')
 
 BROKER = getattr(settings, 'BROKER', 'redis://127.0.0.1:6379/5')
 
-app = Celery('celery_tasks.task', broker=BROKER)
+app = Celery('tasks.task', broker=BROKER)
+
+"""发邮件的时候请设置debug为False"""
 
 
 @app.task
