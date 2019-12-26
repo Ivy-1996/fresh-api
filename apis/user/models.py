@@ -21,4 +21,4 @@ class Address(BaseModel):
         verbose_name_plural = verbose_name
 
     def __str__(self):
-        return self.user.username
+        return self.addr

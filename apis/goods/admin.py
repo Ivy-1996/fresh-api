@@ -28,7 +28,6 @@ class GoodsSKUAdmin(ImportExportModelAdmin):
     def image_data(self, attr):
         content = f'<img src="{attr.image.url}" width=40>'
         resp = mark_safe(content)
-        print(resp)
         return resp
 
     image_data.short_description = '商品图片'

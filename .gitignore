@@ -130,3 +130,6 @@ dmypy.json
 
 # ieda
 .idea
+
+# settings
+.FreshApi/develop.py

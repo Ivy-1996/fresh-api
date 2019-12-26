@@ -41,9 +41,10 @@ INSTALLED_APPS = [
     'tinymce',
     'haystack',
     'drf_haystack',
-    'user',
-    'goods',
-    'order',
+    'user.apps.UserConfig',
+    'goods.apps.GoodsConfig',
+    'order.apps.OrderConfig',
+    'cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [
@@ -120,12 +121,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 SESSION_CACHE_ALIAS = "session"
 
+
+# 邮件哦诶之
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = '919624032@qq.com'
-EMAIL_HOST_PASSWORD = 'ukwmsnzpofmqbfcb'
-EMAIL_FROM = '<919624032@qq.com>'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_FROM = ''
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
