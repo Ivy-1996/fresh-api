@@ -3,10 +3,6 @@
 **FreshApi是一个基于生鲜商城开发的restful api**
 
 
-#### 项目地址  : [http://freshapi.summerleaves.cn/](http://freshapi.summerleaves.cn/)
-#### 文档地址  ：[http://freshapi.summerleaves.cn/docs](http://freshapi.summerleaves.cn/docs)
-
-
 
 ####  技术栈
 * 语言：Python3.6.8  (Django==2.1.5， djangorestframework)
