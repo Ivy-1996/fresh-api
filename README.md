@@ -1,6 +1,6 @@
 # FreshApi    B2C-分布式生鲜商城
 
-** FreshApi是一个基于生鲜商城开发的restful api **
+**FreshApi是一个基于生鲜商城开发的restful api**
 
 
 #### 项目地址  : [http://freshapi.summerleaves.cn/](http://freshapi.summerleaves.cn/)
