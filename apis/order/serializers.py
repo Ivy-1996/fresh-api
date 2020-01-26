@@ -240,9 +240,9 @@ class CommentModelSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.OrderGoods
-        fields = ['comment', 'user', 'insert_time', 'update_time', 'id']
+        fields = ['comment', 'user', 'create_time', 'update_time', 'id']
         extra_kwargs = {
-            'insert_time': {'format': '%Y-%m-%d %H:%M:%S', 'read_only': True},
+            'create_time': {'format': '%Y-%m-%d %H:%M:%S', 'read_only': True},
             'update_time': {'format': '%Y-%m-%d %H:%M:%S', 'read_only': True},
             'id': {'read_only': True},
         }

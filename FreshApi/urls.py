@@ -36,8 +36,3 @@ if settings.DEBUG:
     urlpatterns += [path('__debug__', include(debug_toolbar.urls))]
 
 
-def to_admin(request):
-    return redirect('/admin')
-
-
-urlpatterns += [path('', to_admin)]

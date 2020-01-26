@@ -124,7 +124,7 @@ class AddressModelSerializer(serializers.ModelSerializer):
         model = models.Address
         exclude = ['is_delete']
         extra_kwargs = {
-            'insert_time': {'read_only': True},
+            'create_time': {'read_only': True},
             'update_time': {'read_only': True},
             'phone': {'validators': [phonenum_validator]}
         }

@@ -44,13 +44,13 @@ class UpdateCartApi(mixins.UpdateModelMixin, GenericViewSet):
     """更新购物车"""
     permission_classes = [IsAuthenticated, permission.HasCartSkuPermission]
     serializer_class = serializers.UpdateCartSerializer
-    queryset = GoodsSKU.objects.filter(is_delete=False)
+    queryset = GoodsSKU.objects.filter(delflag=False)
 
 
 class DeleteCartApi(GenericViewSet):
     """删除购物车"""
     permission_classes = [IsAuthenticated, permission.HasCartSkuPermission]
-    queryset = GoodsSKU.objects.filter(is_delete=False)
+    queryset = GoodsSKU.objects.filter(delflag=False)
 
     def destroy(self, request, *args, **kwargs):
         # 主要是为了校验权限

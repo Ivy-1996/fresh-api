@@ -27,12 +27,13 @@ class GoodsBannerModelSerializer(serializers.ModelSerializer):
 
 
 class GoodsSkuModelSerializer(serializers.ModelSerializer):
-    comment = serializers.ManyRelatedField(source='ordergoods_set', child_relation=CommentModelSerializer(),
-                                           read_only=True, required=False)
+    # comment = serializers.ManyRelatedField(source='ordergoods_set', child_relation=CommentModelSerializer(),
+    #                                        read_only=True, required=False)
 
     class Meta:
         model = models.GoodsSKU
-        exclude = ['insert_time', 'update_time', 'is_delete', ]
+        exclude = ['create_time', 'update_time', 'delflag', ]
+        depth = 1
 
 
 class GoodsSkuHaystackSerializer(HaystackSerializer):

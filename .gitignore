@@ -130,5 +130,7 @@ dmypy.json
 
 # ieda
 .idea
+.conf
+.static
 
 # settings

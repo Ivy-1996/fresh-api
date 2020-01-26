@@ -1,7 +1,6 @@
 from django_redis import get_redis_connection
 
 from drf_haystack.viewsets import HaystackViewSet
-from drf_haystack.filters import HaystackGEOSpatialFilter
 
 from utils.views import ReadOnlyModelViewSet
 from . import models
@@ -12,6 +11,7 @@ class GoodsApi(ReadOnlyModelViewSet):
     """商品api"""
     queryset = models.Goods.objects.all()
     serializer_class = serializers.GoodsModelSerializer
+    permission_classes = []
 
 
 class GoodsTypeApi(ReadOnlyModelViewSet):
@@ -79,3 +79,5 @@ class IndexPromotionBannerApi(ReadOnlyModelViewSet):
     """IndexPromotionBannerApi"""
     queryset = models.IndexPromotionBanner.objects.all()
     serializer_class = serializers.IndexPromotionBannerModelSerializer
+
+
