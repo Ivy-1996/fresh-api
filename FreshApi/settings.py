@@ -126,9 +126,9 @@ SESSION_CACHE_ALIAS = "session"
 EMAIL_USE_SSL = True
 EMAIL_HOST = 'smtp.qq.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'lambda.ivy@qq.com'
-EMAIL_HOST_PASSWORD = 'shjljjzcbrrubcig'
-EMAIL_FROM = 'lambda.ivy@qq.com'
+EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_FROM = ''
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
