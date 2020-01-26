@@ -132,5 +132,6 @@ dmypy.json
 .idea
 .conf
 .static
+.FreshApi/develop.py
 
 # settings
