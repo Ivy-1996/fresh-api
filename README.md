@@ -3,7 +3,7 @@
 **FreshApi是一个基于生鲜商城开发的restful api**
 
 
-#### 项目地址  : [http://freshapi.summerleaves.cn/](http://freshapi.summerleaves.cn/)
+#### 项目地址  : [http://freshapi.summerleaves.cn/goods](http://freshapi.summerleaves.cn/goods)
 #### 文档地址  ：[http://freshapi.summerleaves.cn/docs](http://freshapi.summerleaves.cn/docs)
 
 
