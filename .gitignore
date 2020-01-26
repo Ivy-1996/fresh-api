@@ -129,9 +129,9 @@ dmypy.json
 .pyre/
 
 # ieda
-.idea
-.conf
-.static
+.idea/
+.conf/
+.static/
 .FreshApi/develop.py
 
 # settings
