@@ -22,7 +22,7 @@ django-import-export==2.0
 django-redis==4.11.0
 django-simpleui==3.8
 django-tinymce==2.8.0
-djangorestframework==3.10.3
+djangorestframework==3.11.2
 djangorestframework-stubs==1.1.0
 drf-haystack==1.8.6
 et-xmlfile==1.0.1
