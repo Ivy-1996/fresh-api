@@ -33,7 +33,7 @@ itsdangerous==1.1.0
 itypes==1.1.0
 jdcal==1.4.1
 jieba==0.39
-Jinja2==2.10.3
+Jinja2==2.11.3
 jmespath==0.9.4
 kombu==4.6.7
 MarkupPy==1.14
